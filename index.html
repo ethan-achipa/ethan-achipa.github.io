@@ -7,228 +7,624 @@
   <title>Ethan Achipa | Engineering Portfolio</title>
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    * {
+      box-sizing: border-box;
       margin: 0;
-      background: #f5f5f5;
-      color: #222;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b0f14;
+      color: #e8edf2;
       line-height: 1.6;
     }
 
-    header {
-      background: #111;
-      color: white;
-      padding: 70px 20px;
-      text-align: center;
+    html {
+      scroll-behavior: smooth;
     }
 
-    header h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 18px;
-      margin: 5px;
-    }
-
-    nav {
-      margin-top: 20px;
-    }
-
-    nav a {
-      color: white;
-      margin: 0 12px;
+    a {
+      color: inherit;
       text-decoration: none;
     }
 
-    main {
-      max-width: 950px;
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(11, 15, 20, 0.95);
+      border-bottom: 1px solid #202833;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1100px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    section {
-      margin-bottom: 55px;
-    }
-
-    h2 {
-      border-bottom: 2px solid #222;
-      padding-bottom: 8px;
-    }
-
-    .project {
-      background: white;
-      padding: 22px;
-      margin: 20px 0;
-      border-radius: 8px;
-    }
-
-    .project h3 {
-      margin-top: 0;
-    }
-
-    .tools {
+    .nav-name {
+      font-size: 20px;
       font-weight: bold;
     }
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: #111;
+    .nav-links a {
+      margin-left: 24px;
+      color: #b7c0ca;
+    }
+
+    .nav-links a:hover {
       color: white;
+    }
+
+    .hero {
+      min-height: 80vh;
+      max-width: 1100px;
+      margin: auto;
+      padding: 120px 24px 80px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .eyebrow {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #9aa7b3;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 64px;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero h2 {
+      font-size: 26px;
+      font-weight: normal;
+      color: #b7c0ca;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      font-size: 18px;
+      color: #aeb8c2;
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      border: 1px solid #55606d;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      background: #e8edf2;
+      color: #0b0f14;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 80px 24px;
+    }
+
+    .section-title {
+      font-size: 36px;
+      margin-bottom: 14px;
+    }
+
+    .section-intro {
+      color: #9da8b3;
+      max-width: 720px;
+      margin-bottom: 40px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: #121820;
+      border: 1px solid #252e39;
+      border-radius: 10px;
+      padding: 28px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #566272;
+    }
+
+    .card h3 {
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #aeb8c2;
+      margin-bottom: 16px;
+    }
+
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      border: 1px solid #3a4654;
+      border-radius: 20px;
+      padding: 5px 10px;
+      font-size: 13px;
+      color: #c7d0d9;
+    }
+
+    .experience-item {
+      border-left: 2px solid #3b4653;
+      padding-left: 24px;
+      margin-bottom: 40px;
+    }
+
+    .experience-item h3 {
+      font-size: 22px;
+    }
+
+    .experience-item .meta {
+      color: #8e9aa6;
+      margin-bottom: 10px;
+    }
+
+    .experience-item p {
+      color: #aeb8c2;
+      max-width: 850px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .skills-box {
+      background: #121820;
+      border: 1px solid #252e39;
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .skills-box h3 {
+      margin-bottom: 12px;
+    }
+
+    .skills-box p {
+      color: #aeb8c2;
+    }
+
+    .publication {
+      background: #121820;
+      border-left: 4px solid #768493;
+      padding: 24px;
+      margin-top: 24px;
+    }
+
+    .publication p {
+      color: #aeb8c2;
+    }
+
+    .contact {
+      text-align: center;
+      padding-bottom: 100px;
+    }
+
+    .contact p {
+      color: #aeb8c2;
+      margin: 12px auto 26px;
+      max-width: 600px;
+    }
+
+    footer {
+      border-top: 1px solid #202833;
+      text-align: center;
+      padding: 28px;
+      color: #7f8b97;
+    }
+
+    @media (max-width: 800px) {
+      h1 {
+        font-size: 46px;
+      }
+
+      .projects-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 80px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Ethan Achipa</h1>
-
-  <p>Aerospace & Mechanical Engineering Student</p>
-  <p>Oklahoma State University</p>
-
   <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#research">Research</a>
-    <a href="#contact">Contact</a>
+    <div class="nav-container">
+      <div class="nav-name">Ethan Achipa</div>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
   </nav>
-</header>
 
 
-<main>
+  <section class="hero">
+    <div class="hero-content">
 
-<section id="about">
+      <div class="eyebrow">Engineering Portfolio</div>
 
-  <h2>About Me</h2>
+      <h1>Ethan Achipa</h1>
 
-  <p>
-    I am an Aerospace and Mechanical Engineering student at Oklahoma State
-    University interested in liquid rocket propulsion, thermal-fluid systems,
-    and spacecraft engineering. My experience includes rocket engine testing,
-    thermal analysis, CAD design, orbital mechanics, and materials research.
-    My long-term goal is to work as a propulsion engineer developing advanced
-    spaceflight systems.
-  </p>
+      <h2>
+        Aerospace & Mechanical Engineering Student
+      </h2>
 
-</section>
+      <p>
+        Oklahoma State University student focused on liquid rocket propulsion,
+        thermal-fluid systems, spacecraft engineering, and hands-on technical
+        development. My work spans rocket engine cooling, hot-fire testing,
+        orbital mechanics, CAD, and advanced materials research.
+      </p>
+
+      <div class="buttons">
+
+        <a class="button" href="#projects">
+          View Projects
+        </a>
+
+        <a class="button"
+           href="https://github.com/ethan-achipa"
+           target="_blank">
+          GitHub
+        </a>
+
+        <a class="button"
+           href="mailto:eachipa@okstate.edu">
+          Email Me
+        </a>
+
+      </div>
+
+    </div>
+  </section>
 
 
-<section id="projects">
+  <section id="about">
 
-  <h2>Engineering Projects</h2>
+    <h2 class="section-title">About Me</h2>
 
-  <div class="project">
-
-    <h3>Liquid Rocket Engine Cooling System</h3>
+    <p class="section-intro">
+      I am pursuing bachelor's degrees in Aerospace Engineering and Mechanical
+      Engineering at Oklahoma State University. I am particularly interested
+      in propulsion engineering and the development of thermal-fluid systems
+      for launch vehicles and spacecraft.
+    </p>
 
     <p>
-      I lead the development of the cooling system for a small liquid rocket
-      engine at Oklahoma State University. My work includes heat-transfer and
-      thermal-fluid analysis, evaluation of combustion chamber wall
-      temperatures, coolant-flow analysis, and development of water-cooled
-      and regenerative cooling concepts.
+      My research has allowed me to work directly with liquid rocket propulsion
+      hardware, perform engineering analysis, develop CAD models, conduct
+      experimental testing, and communicate technical results through
+      publications and presentations.
     </p>
 
-    <p class="tools">
-      Tools: SolidWorks, Python, Heat Transfer Analysis, Thermal-Fluid Analysis
+  </section>
+
+
+  <section id="projects">
+
+    <h2 class="section-title">Featured Projects</h2>
+
+    <p class="section-intro">
+      Selected engineering and research projects focused on propulsion,
+      thermal systems, orbital mechanics, and materials.
     </p>
 
-  </div>
+
+    <div class="projects-grid">
+
+      <div class="card">
+
+        <h3>Liquid Rocket Engine Cooling System</h3>
+
+        <p>
+          Lead the development of the cooling system for a small liquid rocket
+          engine. Perform heat-transfer and thermal-fluid analysis to evaluate
+          combustion chamber wall temperatures and cooling requirements while
+          developing water-cooled and regenerative cooling concepts.
+        </p>
+
+        <p>
+          I also develop SolidWorks CAD models and evaluate coolant-flow,
+          pressure-drop, thermal-performance, and manufacturability tradeoffs.
+        </p>
+
+        <div class="tag-container">
+          <span class="tag">Heat Transfer</span>
+          <span class="tag">Thermal-Fluid Analysis</span>
+          <span class="tag">SolidWorks</span>
+          <span class="tag">Rocket Propulsion</span>
+        </div>
+
+      </div>
 
 
-  <div class="project">
+      <div class="card">
 
-    <h3>Propane-Oxygen Torch Igniter</h3>
+        <h3>Propane-Oxygen Torch Igniter</h3>
+
+        <p>
+          Helped design, develop, and hot-fire test a reusable propane-oxygen
+          torch igniter for a small liquid rocket engine.
+        </p>
+
+        <p>
+          Evaluated ignition reliability and oxidizer-to-fuel ratio sensitivity
+          using experimental testing and mass-flow calculations. The work
+          contributed to an AIAA publication and conference presentation.
+        </p>
+
+        <div class="tag-container">
+          <span class="tag">Hot-Fire Testing</span>
+          <span class="tag">Mass Flow</span>
+          <span class="tag">Instrumentation</span>
+          <span class="tag">Data Acquisition</span>
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>Cis-Lunar Satellite Constellation Modeling</h3>
+
+        <p>
+          Developed Python-based simulations to model lunar satellite
+          constellations using orbital mechanics.
+        </p>
+
+        <p>
+          Analyzed constellation coverage and communication link availability
+          for future lunar missions.
+        </p>
+
+        <div class="tag-container">
+          <span class="tag">Python</span>
+          <span class="tag">STK</span>
+          <span class="tag">Orbital Mechanics</span>
+          <span class="tag">Simulation</span>
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>Advanced Thermal Barrier Coating Materials</h3>
+
+        <p>
+          Conducted research on A₂B₂O₇ zirconate ceramics and thin films for
+          thermal-barrier coating applications at the UT–Oak Ridge Innovation
+          Institute.
+        </p>
+
+        <p>
+          Fabricated ceramic sputtering targets, deposited thin films using RF
+          magnetron reactive sputtering, and characterized materials using XRD,
+          XRF, SEM, and EDS.
+        </p>
+
+        <div class="tag-container">
+          <span class="tag">RF Sputtering</span>
+          <span class="tag">XRD</span>
+          <span class="tag">SEM / EDS</span>
+          <span class="tag">Materials Research</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section id="experience">
+
+    <h2 class="section-title">Experience</h2>
+
+
+    <div class="experience-item">
+
+      <h3>Liquid Rocket Propulsion Researcher</h3>
+
+      <div class="meta">
+        Oklahoma State University | September 2025 – Present
+      </div>
+
+      <p>
+        Conduct thermal-fluid analysis, develop combustion chamber and cooling
+        system CAD models, evaluate coolant-flow design tradeoffs, and support
+        experimental rocket engine development and testing.
+      </p>
+
+    </div>
+
+
+    <div class="experience-item">
+
+      <h3>Materials Research Intern</h3>
+
+      <div class="meta">
+        UT–Oak Ridge Innovation Institute | May 2026 – July 2026
+      </div>
+
+      <p>
+        Synthesized advanced zirconate ceramics, fabricated sputtering targets,
+        deposited thin films, and characterized material structure,
+        composition, and microstructure using advanced laboratory techniques.
+      </p>
+
+    </div>
+
+
+    <div class="experience-item">
+
+      <h3>Cis-Lunar Space Researcher</h3>
+
+      <div class="meta">
+        University of Oklahoma | November 2024 – July 2025
+      </div>
+
+      <p>
+        Developed orbital mechanics simulations for lunar satellite
+        constellations and evaluated mission coverage and communication
+        availability.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section id="skills">
+
+    <h2 class="section-title">Technical Skills</h2>
+
+    <div class="skills-grid">
+
+      <div class="skills-box">
+        <h3>Engineering</h3>
+        <p>
+          SolidWorks<br>
+          Python<br>
+          STK<br>
+          Heat Transfer Analysis<br>
+          Thermal-Fluid Modeling
+        </p>
+      </div>
+
+      <div class="skills-box">
+        <h3>Testing & Hardware</h3>
+        <p>
+          Hot-Fire Testing<br>
+          Arduino<br>
+          Data Acquisition<br>
+          Instrumentation<br>
+          Experimental Testing
+        </p>
+      </div>
+
+      <div class="skills-box">
+        <h3>Manufacturing & Lab</h3>
+        <p>
+          Lathe<br>
+          Mill<br>
+          3D Printing<br>
+          RF Magnetron Sputtering<br>
+          XRD / XRF / SEM / EDS
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section id="publications">
+
+    <h2 class="section-title">Publications & Presentations</h2>
+
+    <div class="publication">
+
+      <h3>
+        Development of a Propane-Oxygen Torch Igniter for a Small Liquid
+        Rocket Engine Test Stand
+      </h3>
+
+      <p>
+        AIAA Regional Student Conferences, 2026
+      </p>
+
+      <p>
+        Presented at the 2026 AIAA Region IV Student Conference.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section id="contact" class="contact">
+
+    <h2 class="section-title">Contact</h2>
 
     <p>
-      Helped design, develop, and hot-fire test a reusable propane-oxygen torch
-      igniter for a small liquid rocket engine. I analyzed oxidizer-to-fuel
-      ratio sensitivity and ignition performance using experimental testing
-      and mass-flow calculations.
+      I am interested in opportunities involving propulsion, thermal-fluid
+      systems, mechanical design, testing, and spacecraft engineering.
     </p>
 
-    <p>
-      This work contributed to the AIAA publication
-      <em>Development of a Propane-Oxygen Torch Igniter for a Small Liquid
-      Rocket Engine Test Stand</em>.
-    </p>
+    <div class="buttons" style="justify-content:center;">
 
-    <p class="tools">
-      Skills: Rocket Propulsion, Hot-Fire Testing, Instrumentation,
-      Data Acquisition, Mass-Flow Analysis
-    </p>
+      <a class="button"
+         href="mailto:eachipa@okstate.edu">
+        Email
+      </a>
 
-  </div>
+      <a class="button"
+         href="https://github.com/ethan-achipa"
+         target="_blank">
+        GitHub
+      </a>
 
+    </div>
 
-  <div class="project">
-
-    <h3>Cis-Lunar Satellite Constellation Modeling</h3>
-
-    <p>
-      Developed Python-based orbital mechanics simulations to model lunar
-      satellite constellations and analyze coverage and communication
-      availability for future lunar missions.
-    </p>
-
-    <p class="tools">
-      Tools: Python, Orbital Mechanics
-    </p>
-
-  </div>
-
-</section>
+  </section>
 
 
-<section id="research">
-
-  <h2>Materials Research</h2>
-
-  <div class="project">
-
-    <h3>Advanced Thermal Barrier Coating Materials</h3>
-
-    <p>
-      Conducted research on A₂B₂O₇ zirconate ceramics for thermal-barrier
-      coating applications at the UT-Oak Ridge Innovation Institute.
-      Synthesized bulk ceramics, fabricated sputtering targets, deposited thin
-      films using RF magnetron reactive sputtering, and characterized samples
-      using XRD, XRF, SEM, and EDS.
-    </p>
-
-    <p class="tools">
-      Skills: RF Magnetron Sputtering, XRD, XRF, SEM, EDS
-    </p>
-
-  </div>
-
-</section>
-
-
-<section id="contact">
-
-  <h2>Contact</h2>
-
-  <p>Email: eachipa@okstate.edu</p>
-
-  <p>
-    GitHub:
-    <a href="https://github.com/ethan-achipa">
-      github.com/ethan-achipa
-    </a>
-  </p>
-
-</section>
-
-</main>
-
-
-<footer>
-  <p>© 2026 Ethan Achipa</p>
-</footer>
+  <footer>
+    © 2026 Ethan Achipa
+  </footer>
 
 </body>
 </html>
